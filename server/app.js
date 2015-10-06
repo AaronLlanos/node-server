@@ -4,7 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+/**
+ * Route Imports
+ */
+var signup = require('./routes/signup');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -55,5 +58,10 @@ if (app.get('env') === 'production') {
         });
     });
 }
+
+/**
+ * Routes
+ */
+app.use('/signup', signup);
 
 module.exports = app;
