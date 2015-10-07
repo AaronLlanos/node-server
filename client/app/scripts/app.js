@@ -15,9 +15,11 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ng-facebook-api',
+    'ui.bootstrap'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, facebookProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -37,4 +39,15 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+       /**
+        * Here the list of params used to configure the provider
+        * @param appId
+        * @param status
+        * @param xfbml
+        * @param cookie
+        * @param api-version
+        */
+     facebookProvider.setInitParams('406449829550213',true,true,true,'v2.1');
+     //if your app use extra permissions set it
+     facebookProvider.setPermissions(['email']);
   });

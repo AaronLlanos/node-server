@@ -32,6 +32,7 @@ router.post('/', function (req, res) {
 
             // send the error
             res.status(500).json({
+                'success': false,
                 'message': 'Internal server error from signing up new user. Please contact support@yourproject.com.'
             });
         }
@@ -54,7 +55,8 @@ router.post('/', function (req, res) {
                 if (err) {
                     console.log('Problem saving the user ' + color.yellow(body.email) + ' due to ' + err);
                     res.status(500).json({
-                        'message': 'Database error trying to sign up.  Please contact support@yourproject.com.'
+                        'success': false,
+                        'message': 'Database error trying to sign up.  Please notify your provider.'
                     });
                 }
 
@@ -62,6 +64,7 @@ router.post('/', function (req, res) {
                 console.log('Successfully created new user: ' + color.green(body.email));
 
                 res.status(201).json({
+                    'success': true,
                     'message': 'Successfully created new user',
                     'client': _.omit(savedUser, 'password')
                 });
@@ -72,6 +75,7 @@ router.post('/', function (req, res) {
         // If the user already exists...
         if (user) {
             res.status(409).json({
+                'success': false,
                 'message': body.email + ' already exists!'
             });
         }
