@@ -3,10 +3,11 @@
  */
 var mongoose = require('mongoose');
 var UserModel = require('./schemas/users');
+var FeedbackModel = require('./schemas/feedback');
 
 // Connections
 var developmentDb = 'mongodb://localhost/test';
-var productionDb = 'urlToYourProductionMongoDb';
+var productionDb = 'mongodb://aaronllanos93:gti26593:)@ds037283.mongolab.com:37283/portfolio';
 var usedDb;
 
 // If we're in development...
@@ -35,3 +36,4 @@ db.once('open', function callback () {
   console.log('Database Connection Successfully Opened at ' + usedDb);
 });
 exports.users = UserModel;
+exports.feedback = FeedbackModel;

@@ -56,7 +56,7 @@ router.post('/', function (req, res) {
                     console.log('Problem saving the user ' + color.yellow(body.email) + ' due to ' + err);
                     res.status(500).json({
                         'success': false,
-                        'message': 'Database error trying to sign up.  Please notify your provider.'
+                        'message': 'Database error trying to sign up.  Please notify Aaron Llanos.'
                     });
                 }
 

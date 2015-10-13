@@ -1,0 +1,36 @@
+<div class="col-md-12" ng-controller="FeedbackCtrl">
+	<form class="form-horizontal">
+		<!-- Text input-->
+		<div class="form-group">
+			<div class="col-xs-6">
+				<input name="firstname" ng-model="feedback.firstname" type="text" placeholder="First Name" class="form-control input-md">
+			</div>
+			<div class="col-xs-6">
+				<input name="lastname" ng-model="feedback.lastname" type="text" placeholder="Last Name" class="form-control input-md">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-12">
+				<input name="email" ng-model="feedback.email" type="email" placeholder="Email" class="form-control input-md">
+			</div>
+		</div>
+		<h2>
+			Rating: &nbsp;
+			<rating ng-model="feedback.rating" max="rating.max" readonly="rating.isReadonly" on-hover="rating.hoveringOver(value)" on-leave="rating.leavingRating()" ></rating>
+		 	<span class="label" ng-class="{'label-danger': rating.percent<30, 'label-warning': rating.percent>=30 && rating.percent<70, 'label-success': rating.percent>=70}" ng-show="!rating.isReadonly">{{rating.percent}}%</span>
+		</h2>
+		<div class="form-group">
+			<div class="col-xs-12">
+				<textarea name="comment" ng-model="feedback.comment" type="comment" placeholder="Enter your comment or feedback or anything you want here!" class="form-control input-md" rows="12"></textarea> 
+			</div>
+		</div>
+
+		<!-- Button -->
+		<div class="form-group center-block">
+			<div class="col-xs-6">
+				<button name="submit" ng-click="feedback.submit()" class="btn btn-success btn-block">Submit</button>
+			</div>
+		</div>
+
+	</form>
+</div>

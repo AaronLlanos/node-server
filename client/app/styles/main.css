@@ -95,3 +95,18 @@ body {
     margin-bottom: 10px;
   }
 }
+
+/* NG  animations */
+.navalert-show {
+  padding-top: 5px;
+}
+
+.navalert-show.ng-hide-add, .navalert-show.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+
+.navalert-show.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}

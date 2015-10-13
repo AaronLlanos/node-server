@@ -8,4 +8,6 @@ module.exports = function (app) {
     app.use('/signup', require('./routes/signup'));
     // The login route
     app.use('/login', require('./routes/login'));
+    // The feedback route
+    app.use('/feedback', require('./routes/feedback'));
 }

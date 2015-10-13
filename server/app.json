@@ -1,0 +1,7 @@
+{
+  "name": "Portfolio App.",
+  "description": "A barebones Node.js app using Express 4",
+  "repository": "",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}
